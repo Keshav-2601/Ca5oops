@@ -9,8 +9,8 @@ public class Main {
             System.out.println("Welcome to student database app:");
             Scanner s=new Scanner(System.in);
             while(true){
-                System.out.println("Press 1 to get all student names");
-                System.out.println("Press 2 to get  student name by id");
+                System.out.println("Press 1 to getallstudent()");
+                System.out.println("Press 2 to studentbyid()");
                 System.out.println("Press 3 to update student name by id");
                 System.out.println("Press 4 to insert  student details");
                 System.out.println("Press 5 to delete  student name by id");
@@ -38,6 +38,7 @@ public class Main {
                 }
                 if(choice==2){
                     //get name by id
+                    int id=s
                 }
                 if(choice==3){
                     //delete data
