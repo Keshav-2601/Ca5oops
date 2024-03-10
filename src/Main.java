@@ -28,17 +28,36 @@ public class Main {
                         int student_id=result.getInt("Student_id");
                         String firstname=result.getString("First_name");
                         String lastname=result.getString("LastName");
-                        int Marks=result.getInt("Marks");
+                        Double Marks=result.getDouble("Marks");
                         String Address=result.getString("Address");
                         System.out.print(student_id + ", ");
                         System.out.print(firstname + ", ");
                         System.out.print(lastname + ", ");
-                        System.out.println(Marks);
+                        System.out.println(Marks+", ");
+                        System.out.println(Address);
                     }
                 }
                 if(choice==2){
+                    Scanner sc=new Scanner(System.in);
                     //get name by id
-                    int id=s
+                    System.out.println("Enter the valid id ");
+                    int id=sc.nextInt();
+                    Statement s1= con.createStatement();
+                    ResultSet result=s1.executeQuery("select * from student_table where Student_id="+id);
+                    if(result.next()){
+                        int student_id=result.getInt("Student_id");
+                        String firstname=result.getString("First_name");
+                        String lastname=result.getString("LastName");
+                        Double Marks=result.getDouble("Marks");
+                        String Address=result.getString("Address");
+                        System.out.print(student_id + ", ");
+                        System.out.print(firstname + ", ");
+                        System.out.print(lastname + ", ");
+                        System.out.println(Marks+", ");
+                        System.out.println(Address);
+                    }else {
+                        System.out.println("ID does not exits:");
+                    }
                 }
                 if(choice==3){
                     //delete data
@@ -59,7 +78,7 @@ public class Main {
                         int student_id=result.getInt("Student_id");
                         String firstname=result.getString("First_name");
                         String lastname=result.getString("LastName");
-                        int Marks=result.getInt("Marks");
+                        Double Marks=result.getDouble("Marks");
                         String Address=result.getString("Address");
                         System.out.print(student_id + ", ");
                         System.out.print(firstname + ", ");
