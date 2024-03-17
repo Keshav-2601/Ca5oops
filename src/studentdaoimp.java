@@ -137,4 +137,33 @@ public class studentdaoimp implements interfaceDao {
         }
         return null;
     }
+    public List<student> filter(StudentFilter filter) {
+        List<student> filteredStudents = new ArrayList<>();
+        String sql = "SELECT * FROM Student_table WHERE marks >= ? AND marks <= ? AND address = ?";
+
+        try (Connection connection = DriverManager.getConnection(url, username, password);
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setFloat(1, filter.getMinMarks());
+            statement.setFloat(2, filter.getMaxMarks());
+            statement.setString(3, filter.getAddress());
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int studentId = resultSet.getInt("studentId");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
+                float marks = resultSet.getFloat("marks");
+                String address = resultSet.getString("address");
+
+                student student = new student(Student_Id, First_name, LastName, Marks, Address);
+                filteredStudents.add(student);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return filteredStudents;
+    }
 }
