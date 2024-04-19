@@ -1,48 +1,46 @@
 import java.util.List;
 import java.util.Scanner;
+
 public class MainProgram {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/Students";
         String username = "root";
         String password = "";
-         interfaceDao studuntdao  = new  studentdaoimp(url, username, password);
-
+        InterfaceDao studentDao = new StudentDaoImp(url, username, password);
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("menu");
-            System.out.println("1: view students");
-            System.out.println("2:add new student");
+            System.out.println("Menu");
+            System.out.println("1: View students");
+            System.out.println("2: Add new student");
 
             int choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
-                    List<student> students = studentDAO.getAllstudents();
-                    for (student student : students) {
+                    List<Student> students = studentDao.getAllStudents();
+                    for (Student student : students) {
                         System.out.println(student);
                     }
                     break;
 
                 case 2:
-                    System.out.println("enter student id");
+                    System.out.println("Enter student id");
                     int studentId = scanner.nextInt();
                     scanner.nextLine();
 
-                    student foundStudent = studentDAO.getstudentById(studentId);
+                    Student foundStudent = studentDao.getStudentById(studentId);
                     if (foundStudent != null) {
-                        System.out.println("found student");
+                        System.out.println("Found student:");
                         System.out.println(foundStudent);
-
-                    }else{
-                        System.out.println("student not found" + studentId);
-
+                    } else {
+                        System.out.println("Student not found with id: " + studentId);
                     }
                     break;
+
                 default:
                     System.out.println("Invalid choice. Please enter a valid option.");
             }
-
         }
-
-    }}
+    }
+}

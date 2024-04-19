@@ -1,5 +1,5 @@
 public interface StuduentFilter {
-    boolean filter(student student);
+    boolean filter(Student student);
 
     float getMinMarks();
     void setMinMarks(float minMarks);
