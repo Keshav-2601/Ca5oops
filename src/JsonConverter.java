@@ -12,5 +12,15 @@ public class JsonConverter {
     public static <Player> String playerToJson(Player p) {
         Gson gson = new Gson();
         return gson.toJson(p);
+
+    }
+    public static String studentsListToJson(List<Student> students) {
+        Gson gson = new Gson();
+        return gson.toJson(students);
+    }
+
+    public static String studentToJson(Student student) {
+        Gson gson = new Gson();
+        return gson.toJson(student);
     }
 }

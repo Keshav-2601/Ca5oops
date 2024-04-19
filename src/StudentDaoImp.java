@@ -122,6 +122,14 @@ public class StudentDaoImp implements InterfaceDao {
         }
         return null;
     }
+    public String studentsListToJson(List<Student> students) {
+        return JsonConverter.studentsListToJson(students);
+    }
+
+
+    public String studentToJson(Student student) {
+        return JsonConverter.studentToJson(student);
+    }
 
 }
 
