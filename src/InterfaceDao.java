@@ -6,4 +6,5 @@ public interface InterfaceDao {
     Student insertStudent(Student student);
     Student deleteStudent(int studentId);
     Student updateStudent(int studentId, Student updatedStudent);
+
 }
