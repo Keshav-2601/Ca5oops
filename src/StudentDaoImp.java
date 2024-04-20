@@ -8,9 +8,9 @@ public class StudentDaoImp implements InterfaceDao {
     private final String password;
 
     public StudentDaoImp(String url, String username, String password) {
-        this.url = url;
-        this.username = username;
-        this.password = password;
+        this.url = "jdbc:mysql://localhost:3306/uni_db";
+        this.username = "root";
+        this.password = "";
     }
 
     @Override
